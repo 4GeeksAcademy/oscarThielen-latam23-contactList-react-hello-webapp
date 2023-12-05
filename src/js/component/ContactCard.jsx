@@ -7,7 +7,7 @@ export const Card = ({ name, address, email, phone, id, deleteContact }) => {
 
   const handleDelete = (id) => {
     deleteContact(id);
-    setModalOpen(false); // Cerrar el modal después de eliminar el contacto
+    setModalOpen(false); 
   };
 
   const openModal = () => {
@@ -48,7 +48,7 @@ export const Card = ({ name, address, email, phone, id, deleteContact }) => {
                 </div>
                 <button
                   className="btn btn-danger"
-                  onClick={openModal} // Abrir el modal cuando se hace clic en el botón de eliminar
+                  onClick={openModal} 
                 >
                   🗑
                 </button>

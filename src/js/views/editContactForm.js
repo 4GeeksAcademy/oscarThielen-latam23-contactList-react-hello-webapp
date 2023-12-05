@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { useContext } from "react";
 
+
 export const Editcontact = () => {
     const { store } = useContext(Context);
     const [fullName, setFullName] = useState('');
@@ -31,14 +32,14 @@ export const Editcontact = () => {
 
     const createContact = async (contact) => {
         try {
-            const response = await fetch(store.APIURL + params.someid, {
+            const response = await fetch("https://playground.4geeks.com/apis/fake/contact/"+ params.contactid, {
                 method: "PUT",
                 body: JSON.stringify({
-                    full_name: `${contact.fullName}`,
-                    email: `${contact.email}`,
+                    full_name: `${fullName}`,
+                    email: `${email}`,
                     agenda_slug: "oscar-agenda",
-                    address: `${contact.address}`,
-                    phone: `${contact.phone}`
+                    address: `${address}`,
+                    phone: `${phone}`
                 }),
                 headers: { 'Content-type': 'application/json' }
             });
@@ -58,9 +59,9 @@ export const Editcontact = () => {
                 <div className="container">
                     <form className="form" onSubmit={(e) => {
                         e.preventDefault();
-                        console.log(newContact);
+                        //console.log(newContact);
                         e.target.reset();
-                        createContact(newContact);
+                        createContact();
                     }}>
                         <div className="row mb-3">
                             <div className="col-md-12">

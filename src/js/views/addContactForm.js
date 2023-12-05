@@ -21,17 +21,41 @@ export const Newcontact = () => {
     });
   };
 
-const createContact = async () => {
+// const createContact = async () => {
+//     try {
+//       const response = await fetch("https://playground.4geeks.com/apis/fake/contact", {
+//         method: "POST",
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({
+//           "full_name": "Oscar Thielen",
+//           "email": "oscar@gmail.com",
+//           "agenda_slug": "oscar-agenda",
+//           "address":"47569 NW 34ST, 33434 FL, USA",
+//           "phone":"7864445567"
+//         })
+//       });
+//       if (response.status !== 201) {
+//         console.log("error", error);
+//         return;
+//       }
+//       await getContacts();
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+
+  const createContact = async () => {
+    console.log("Creando Contacto")
     try {
       const response = await fetch("https://playground.4geeks.com/apis/fake/contact", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          "full_name": "Oscar Thielen",
-          "email": "oscar@gmail.com",
+          "full_name": newContact.fullName,
+          "email": newContact.email,
           "agenda_slug": "oscar-agenda",
-          "address":"47569 NW 34ST, 33434 FL, USA",
-          "phone":"7864445567"
+          "address": newContact.address,
+          "phone": newContact.phone
         })
       });
       if (response.status !== 201) {
